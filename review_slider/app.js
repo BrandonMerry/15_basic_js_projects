@@ -1,6 +1,9 @@
 // local reviews data
+// array of objects - each object is a different person
+// not yet learned ajax and http request 
 const reviews = [
     {
+    
       id: 1,
       name: "susan smith",
       job: "web developer",
@@ -37,3 +40,5 @@ const reviews = [
         "Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ",
     },
   ];
+
+  
