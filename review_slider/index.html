@@ -14,7 +14,46 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>review project</h1>
+
+    <main>
+        <div class="container">
+            <!-- Headline for section-->
+            <div class="title">
+                <h2>Product Reviews</h2>
+                <div class="underline"></div>
+            </div>
+
+            <!-- this is the review section-->
+            <article class="review">
+                <div class="img-container">
+                    <img src="./person-1.jpeg" id="person-img">
+                </div>
+                <h4 id="author"> Samantha Kelly</h4>
+                <p id="job"> Digital Sales </p>
+                <p id="info">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt labore ad omnis voluptate aliquam nesciunt illo, itaque eaque aperiam ut totam illum mollitia nulla quidem.
+                </p>
+               <!-- buttons for next and previous -->
+               <div class="button-container">
+                   <button class="prev-btn">
+                       <i class="fas fa-chevron-left"></i>
+                   </button>
+                   <button class="prev-btn">
+                       <i class="fas fa-chevron-right"></i>
+                   </button>
+               </div>
+               <!--button for random review generation-->
+
+               <button class="random-btn"> New Review</button>
+
+            </article>
+
+
+        </div>
+    </main>
+    
+
+
     <!-- javascript -->
     <script src="app.js"></script>
   </body>
