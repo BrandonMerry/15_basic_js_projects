@@ -225,6 +225,8 @@ nav {
     display: none;
   }
   .links {
+    /* you need to do this so that at full screen the nav bar is well put together  */
+    /* it removes the 10rem from the show links */
     height: auto;
     display: flex;
   }
