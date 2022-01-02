@@ -199,10 +199,13 @@ nav {
   display: none;
 }
 .links {
-  /* height: 0;
+  /* this hides links by default */
+  height: 0;
   overflow: hidden;
-  transition: var(--transition); */
+  /* this allows the links to transition over time */
+  transition: var(--transition);
 }
+/* this tells the height of links when they are shown  */
 .show-links {
   height: 10rem;
 }
