@@ -247,8 +247,12 @@ Sidebar
   row-gap: 1rem;
   box-shadow: var(--clr-red-dark);
   transition: var(--transition);
-  /* transform: translate(-100%); */
+  /* this is a default way to do the sidebar left 100% and off the screen  */
+  transform: translate(-100%);
 }
+
+/* this lets you toggle the class with js to show sidebar */
+/* opposed to when it is normally not shown  */
 .show-sidebar {
   transform: translate(0);
 }
