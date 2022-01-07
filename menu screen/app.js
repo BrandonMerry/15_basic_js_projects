@@ -85,9 +85,13 @@ const menu = [
 
 const sectionCenter = document.querySelector(".section-center");
 
+const filterBtns = document.querySelectorAll(".filter-btn");
 
+//this is a factoring to allow the code to be cleaner than having it in one function 
+//this loads items 
 window.addEventListener("DOMContentLoaded", function () {
     // console.log("page check is good");
+    //this passes menu into the displayMenuItems function below
     diplayMenuItems(menu);
     displayMenuButtons();
   });
@@ -118,9 +122,25 @@ window.addEventListener("DOMContentLoaded", function () {
     // this overrides "let" and then use the "" to remove the comma between the array items 
     displayMenu = displayMenu.join("");
     
-    // add the article as our data with this next code 
+    // this places the info into the parent, and shows up what you get back form the join method
     sectionCenter.innerHTML = displayMenu;
   }
 
+  //this is the function to use the btns 
+    filterBtns.forEach(function (btn){
+        btn.addEventListener("click", function(e){
+            const category = e.currentTarget.dataset.id;
+        const menuCategory = menu.filter(function(menuItem){
+            if(menuItem.category === category){
+            return menuItem;
+            }
+        });
+        if(category === 'all'){
+            displayMenuItems(menu);
+        }
+        else{
+            displayMenuItems(menuCategory);
+        }
 
-
+        });
+    });
