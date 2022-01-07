@@ -21,10 +21,16 @@
             <!-- this allows for an underline in css -->
             <div class="underline"></div>
         </div>
-            <!-- put all the buttons in a new div -->
-
-    
             <!-- filter buttons -->
+            <!-- put all the buttons in a new div -->
+            <div class="btn-container">
+                <!-- data-id is a tag that lets you access this in JS using dataset properties  -->
+               <!-- data-id = "" must match your category in the menu array  -->
+                <button class="filter-btn" type="button" data-id="all">All</button>
+                <button class="filter-btn" type="button" data-id="brekfast">Breakfast</button>
+                <button class="filter-btn" type="button" data-id="lunch">Lunch</button>
+                <button class="filter-btn" type="button" data-id="shakes">Shakes</button>
+            </div>
         <!-- menu items -->
         <!-- this div is responsible for the section layout of menu -->
         <div class="section-center">
