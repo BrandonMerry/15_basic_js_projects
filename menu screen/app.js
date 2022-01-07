@@ -76,6 +76,14 @@ const menu = [
       img: "./images/item-9.jpeg",
       desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
     },
+    {
+        id: 10,
+        title: "bison steak",
+        category: "dinner",
+        price: 22.99,
+        img: "./images/item-10.jpeg",
+        desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+      },
   ];
 
 // select section-center as a dom object loaded 
@@ -84,8 +92,9 @@ const menu = [
 // section-center is the parent div for all single items 
 
 const sectionCenter = document.querySelector(".section-center");
+const btncontainer = document.querySelector(".btn-container");
 
-const filterBtns = document.querySelectorAll(".filter-btn");
+
 
 //this is a factoring to allow the code to be cleaner than having it in one function 
 //this loads items 
@@ -93,6 +102,7 @@ window.addEventListener("DOMContentLoaded", function () {
     // console.log("page check is good");
     //this passes menu into the displayMenuItems function below
     displayMenuItems(menu);
+    displayMenuButtons();
   });
   
   function displayMenuItems(menuItems) {
@@ -125,21 +135,56 @@ window.addEventListener("DOMContentLoaded", function () {
     sectionCenter.innerHTML = displayMenu;
   }
 
-  //this is the function to use the btns 
-    filterBtns.forEach(function (btn){
-        btn.addEventListener("click", function(e){
-            const category = e.currentTarget.dataset.id;
-        const menuCategory = menu.filter(function(menuItem){
-            if(menuItem.category === category){
-            return menuItem;
-            }
-        });
-        if(category === 'all'){
-            displayMenuItems(menu);
+  function displayMenuButtons() {
+    const categories = menu.reduce(function (values, item) {
+        if (!values.includes(item.category)) {
+           // if values does not include item category, then values will be singular  
+         values.push(item.category);
         }
-        else{
-            displayMenuItems(menuCategory);
-        }
+        return values;
+      },
+      ["all"]
+    );
+    const categoryBtns = categories
+    .map(function (category) {
+      return `<button type="button" class="filter-btn" data-id=${category}>
+          ${category}
+        </button>`;
+    })
+    .join("");
 
-        });
+  btnContainer.innerHTML = categoryBtns;
+  const filterBtns = btnContainer.querySelectorAll(".filter-btn");
+  console.log(filterBtns);
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+    //   console.log(e.currentTarget.dataset); -- check to see return in console 
+      const category = e.currentTarget.dataset.id;
+      const menuCategory = menu.filter(function (menuItem) {
+        // console.log(menuItem.category); check again with new code to see if it works 
+        if (menuItem.category === category) {
+          return menuItem;
+        }
+      });
+      if (category === "all") {
+        diplayMenuItems(menu);
+      } else {
+        diplayMenuItems(menuCategory);
+      }
     });
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
