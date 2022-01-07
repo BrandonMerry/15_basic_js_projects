@@ -92,11 +92,10 @@ const filterBtns = document.querySelectorAll(".filter-btn");
 window.addEventListener("DOMContentLoaded", function () {
     // console.log("page check is good");
     //this passes menu into the displayMenuItems function below
-    diplayMenuItems(menu);
-    displayMenuButtons();
+    displayMenuItems(menu);
   });
   
-  function diplayMenuItems(menuItems) {
+  function displayMenuItems(menuItems) {
     // map over each element and the iterate over them again with html
     // use let because it is not a fixed term like sectionContent (a const)
     // map works to allow you to access each item in the parameter 
