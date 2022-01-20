@@ -240,6 +240,7 @@ h1 {
   text-transform: capitalize;
   color: var(--clr-primary-5);
 }
+
 .switch {
   position: absolute;
   width: 50%;
@@ -252,6 +253,8 @@ h1 {
   display: block;
   transition: var(--transition);
 }
+
+/* this class moves the btn left of right */
 .slide .switch {
   left: 50%;
 }
