@@ -169,6 +169,7 @@ p {
   color: var(--clr-secondary);
 }
 /* section */
+/* no padding on the top to show exactly how the smooth scroll goes to the top of the section */
 .section {
   padding-bottom: 5rem;
 }
