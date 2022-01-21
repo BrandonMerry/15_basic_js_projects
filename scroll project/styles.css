@@ -236,11 +236,13 @@ nav {
 .logo {
   height: 50px;
 }
+/* this by default hides the links */
 .links-container {
   height: 0;
   overflow: hidden;
   transition: var(--transition);
 }
+/* this allows us to use js to show the links */
 .show-links {
   height: 200px;
 }
@@ -258,6 +260,8 @@ nav {
 .links a:hover {
   color: var(--clr-grey-1);
 }
+
+/* this is the media queries section */
 @media screen and (min-width: 800px) {
   nav {
     background: transparent;
@@ -276,6 +280,7 @@ nav {
   .nav-toggle {
     display: none;
   }
+  /* use the !important so that the inline js can be overridden to adjust the main page at full width */
   .links-container {
     height: auto !important;
   }
@@ -370,6 +375,8 @@ footer p {
   visibility: hidden;
   z-index: -100;
 }
+
+/* this is a class to show the link - this class is applied with JS  */
 .show-link {
   visibility: visible;
   z-index: 100;
