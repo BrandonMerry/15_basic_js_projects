@@ -3,12 +3,20 @@
 // slice extracts a section of a string without modifying original string
 //offsetTop - A Number, representing the top position of the element, in pixels
 
+
+
+
 // ********** set date ************ - so you dont need to update manually 
 // this const selects the html with an ID of 'date
 const date =document.getElementById('date');
 // innerHTML modifies the contents 
 // getFullYear is a js function to replace the date
 date.innerHTML = new Date().getFullYear();
+
+
+
+
+
 
 // ********** close links ************
 // this functions on the navbar and changes to the icon when we reach a specific px width
@@ -66,18 +74,60 @@ const topLink = document.querySelector(".top-link");
 
     //this tells when to show the fixed navbar 
 
-    if(scrollHeight > 400){
+    if (scrollHeight > 500) {
+        console.log("helo");
+    
         topLink.classList.add("show-link");
-    }
-    else{
+      } else {
         topLink.classList.remove("show-link");
-    }
-
-
+      }
 });
 
-
-
-
 // ********** smooth scroll ************
+
+// use all because it is attached to a list 
+const scrollLinks = document.querySelectorAll(".scroll-link");
+
+// this lets you access each and every link in the parameter 
+scrollLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+
+        // prevents default function - need for the start 
+        e.preventDefault();
+        // navigates to a specific spot by selecting its attribute 
+        // needed for getElementById selector 
+        // slice(1) says start at the index of 1 to skip the "#"
+        const id = e.currentTarget.getAttribute("href").slice(1);
+        // console.log to make sure 
+        // console.log(id);
+        const element = document.getElementById(id);
+
+
+        // calculate the height
+        const navHeight = navbar.getBoundingClientRect().height;
+        const containerHeight = linksContainer.getBoundingClientRect().height;
+        const fixedNav = navbar.classList.contains("fixed-nav");
+
+        // uses offset top -- notes above 
+        let position = element.offsetTop - navHeight;
+
+        if (!fixedNav) {
+            position = position - navHeight;
+          }
+          if (navHeight > 82) {
+            position = position + containerHeight;
+          }
+
+        // this scrolls to the position now 
+        window.scrollTo({
+            left: 0,
+            top: position,
+          });
+        // linksContainer was already made 
+        // closes navbar toggle on smaller screens 
+        linksContainer.style.height = 0;
+    });
+  });
+
+
 // select links
