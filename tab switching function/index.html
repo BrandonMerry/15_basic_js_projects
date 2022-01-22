@@ -3,13 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tabs</title>
+    <title>Tabs switching project </title>
 
     <!-- styles -->
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>tabs project</h1>
+    <section class="section">
+        <div class="title">
+            <h2>About</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, minus.</p>
+        </div>
+        <div class="about-center section-center">
+            <article class="about-img">
+                <img src="./hero-bcg.jpeg" alt="Hills of New Zealand">
+            </article>
+            <article class="about">
+                <!-- container for the switch tab btn -->
+                <div class="btn-container">
+                    <button class="tab-btn active" data-id="history">History</button>
+                    <button class="tab-btn " data-id="vision">Vision</button>
+                    <button class="tab-btn" data-id="goals">Goals</button>
+                </div>
+                <div class="about-content">
+                    <!-- one content item inside of one tab -->
+                    <div class="content active" id="history">
+                        <h4>history</h4>
+                        <p>
+                          I'm baby wolf pickled schlitz try-hard normcore marfa man bun
+                          mumblecore vice pop-up XOXO lomo kombucha glossier bicycle
+                          rights. Umami kinfolk salvia jean shorts offal venmo. Knausgaard
+                          tilde try-hard, woke fixie banjo man bun. Small batch tumeric
+                          mustache tbh wayfarers 8-bit shaman chartreuse tacos. Viral
+                          direct trade hoodie ugh chambray, craft beer pork belly flannel
+                          tacos single-origin coffee art party migas plaid pop-up.
+                        </p>
+                    </div>
+                    <!-- end of first content block -->
+                    <!-- start of second block -->
+                    <div class="content" id="vision">
+                        <h4>Vision</h4>
+                        <p>
+                          I'm baby wolf pickled schlitz try-hard normcore marfa man bun
+                          mumblecore vice pop-up XOXO lomo kombucha glossier bicycle
+                          rights. Umami kinfolk salvia jean shorts offal venmo. Knausgaard
+                          tilde try-hard, woke fixie banjo man bun. Small batch tumeric
+                          mustache tbh wayfarers 8-bit shaman chartreuse tacos. Viral
+                          direct trade hoodie ugh chambray, craft beer pork belly flannel
+                          tacos single-origin coffee art party migas plaid pop-up.
+                        </p>
+                        <ul>
+                            <li>list item</li>
+                            <li>list item</li>
+                            <li>list item</li>
+                          </ul>
+                    </div>
+                    <!-- end of second content block -->
+                    <div class="content" id="goals">
+                        <h4>Goals</h4>
+                        <p>
+                          I'm baby wolf pickled schlitz try-hard normcore marfa man bun
+                          mumblecore vice pop-up XOXO lomo kombucha glossier bicycle
+                          rights. Umami kinfolk salvia jean shorts offal venmo. Knausgaard
+                          tilde try-hard, woke fixie banjo man bun. Small batch tumeric
+                          mustache tbh wayfarers 8-bit shaman chartreuse tacos. Viral
+                          direct trade hoodie ugh chambray, craft beer pork belly flannel
+                          tacos single-origin coffee art party migas plaid pop-up.
+                        </p>
+                    </div>
+                    <!-- end of second content block -->
+                </div>
+            </article>
+        </div>
+    </section>
     <!-- javascript -->
     <script src="app.js"></script>
   </body>
