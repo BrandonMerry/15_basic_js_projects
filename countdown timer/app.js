@@ -40,14 +40,24 @@ const months = [
         // let futureDate = new Date();
         // console.log(futureDate);
 
+// create a temp date to add more days to app
+
+    let tempDate = new Date();
+    let tempYear = tempDate.getFullYear();
+    let tempMonth = tempDate.getMonth();
+    let tempDay = tempDate.getDate();
+
+    
+
 // month is zero index based array (0-11)
 // year/month/day/hours(0-24)/minutes/seconds
-    let futureDate = new Date(2022,1,24,20,30,0);
+    // this is hardcoded 
+    // let futureDate = new Date(2022,1,24,20,30,0);
     //  console.log(futureDate);
 
 // extract contents from futureDate 1 at a time
 // easiest ones are | years | Hours | Minutes | Date
-
+    const futureDate = new Date(tempYear, tempMonth, tempDay + 10, 1, 30, 0 )
     const year = futureDate.getFullYear();
     const hours = futureDate.getHours();
     const minutes =futureDate.getMinutes();
