@@ -107,11 +107,20 @@ const months = [
 
             // set values array : since using .querySelectorAll you can place them as standard values  
                 const values = [days,hours, minutes, seconds];
+            
+
+            // values are less than 10, add values in front of number
+                function format(item){
+                    if(item <10){
+                        return item = `0${item}`
+                    }
+                    return item
+                };
 
             // now iterate over the array - make sure that the const are in the same format as the html
             // has inner.HTML to replace those hard coded values 
                 items.forEach(function(item,index){
-                    item.innerHTML = values[index]
+                    item.innerHTML =format( values[index])
                 });
     
         };
