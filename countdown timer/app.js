@@ -122,8 +122,18 @@ const months = [
                 items.forEach(function(item,index){
                     item.innerHTML =format( values[index])
                 });
-    
+
+            // removes the errors when an operator goes below zero
+                if(t < 0){
+                    clearInterval(countdown);
+                    deadline.innerHTML = `<h4 class="expired> Unfortunently this giveaway has expired. Please check back next week for another deal</h4>`;
+                }
         };
 
-        // sets initial values
+        // countdown timer without refresh
+        // setInterval needs - callback function & frequency to call the function 
+        // 1000 = 1 second 
+        let countdown = setInterval(getRemainingTime, 1000)
+
+        // uses the function created above "getRemainingTime"
         getRemainingTime();
