@@ -43,7 +43,7 @@ const months = [
 // month is zero index based array (0-11)
 // year/month/day/hours(0-24)/minutes/seconds
     let futureDate = new Date(2022,1,24,20,30,0);
-     console.log(futureDate);
+    //  console.log(futureDate);
 
 // extract contents from futureDate 1 at a time
 // easiest ones are | years | Hours | Minutes | Date
@@ -68,5 +68,48 @@ const months = [
 
 // this updates the <div class="giveaway"></div>
 // you have to write in the template literal (``) your text -- Ending... pm
-    giveaway.textContent = `Ending ${weekday}, ${date}th ${month} ${year} ${hours}:${minutes}pm`
+    giveaway.textContent = `Ending ${weekday}, ${date}th ${month} ${year} at ${hours}:${minutes}`
 
+
+    // *****************************
+    // setup for countdown timer
+    // *****************************
+
+// this gives a large number -- all are milliseconds 
+        const futureTime = futureDate.getTime();
+        // console.log(futureTime);
+
+// a function to get the remaining time
+        function getRemainingTime(){
+            // this is logged in milliseconds 
+                const today = new Date().getTime()
+            // set up your own variable  (this case is 't)
+            // today is js function already 
+            // produces a number value in milliseconds 
+                const t = futureTime - today;
+            // lets you check time in browser 
+                console.log(t);
+
+            // values in MS   |1s = 1000ms | 1m = 60s | 1hr = 60min| 1d = 24hr|
+                const oneDay = 24*60*60*1000;
+                const oneHour = 60*60*1000;
+                const oneMinute = 60*1000;
+
+            // calculates all values | t is difference between futureTime and current time [today]
+                let days = t / oneDay;
+            // math floor to only get the whole number and not decimal points 
+                days = Math.floor(days);
+                // console.log(days);
+            //use the modulus operator to get the remainder after whats left from days then divide by one hour   
+                let hours = Math.floor(t % oneDay) /oneHour;
+                let minutes = Math.floor(t % oneHour) / oneMinute;
+                let seconds = Math.floor(t % oneMinute) / 1000;
+
+
+
+
+    
+        };
+
+
+        getRemainingTime();
