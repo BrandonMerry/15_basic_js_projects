@@ -47,7 +47,7 @@ Variables
   --ff-secondary: "Open Sans", sans-serif;
   --transition: all 0.3s linear;
   --spacing: 0.25rem;
-  --radius: 0.5rem;
+  --radius: 0.35rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1170px;
@@ -146,7 +146,7 @@ p {
   display: inline-block;
   transition: var(--transition);
   font-size: 0.875rem;
-  border: 2px solid var(--clr-primary-5);
+  border: 2px solid var(--clr-black);
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius);
