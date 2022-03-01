@@ -15,8 +15,11 @@ let editID = "";
 
 // ****** EVENT LISTENERS **********
 
-// submit form
+// submit form (event, function name)
 from.addEventListener('submit', addItem)
+
+// clear items btn  (class... = event, function name)
+clearBtn.addEventListener('click', clearItems)
 
 // ****** FUNCTIONS **********
 
@@ -39,7 +42,7 @@ function addItem(e){
         attr.value = id;
         element.setAttributeNode(attr);
         element.innerHTML = ` 
-                <p class="${value}">item</p>
+                <p class="title">${value}</p>
                 <div class="btn-container">
                     <button type="button" class="edit-btn">
                         <i class="fas fa-edit"></i>
@@ -86,10 +89,36 @@ function displayAlert(text,action){
     }, 1000)
 }
 
+// clear items 
+
+function clearItems(){
+    // select all items 
+    const items = document.querySelectorAll('.grocery-item');
+
+    if(items.length > 0){
+        items.forEach(function(item){
+            list.removeChild(item);
+        })
+    }
+    // reset the clear items btn by removing the  css class 
+    container.classList.remove('show-container');
+    displayAlert('empty list', "danger");
+    // setback to default so that edit works and looks good 
+    setBackToDefault();
+    // localStorage.removeItem('list);
+}
+
+
+
 // set back to default
 function setBackToDefault(){
-    console.log("set back to default")
+    // this returns the placeholder in the input 
+    grocery.value = '';
+    editFlag = false;
+    editID = '';
+    submtBtn.textContent = 'submit';
 }
+
 
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value){
