@@ -21,16 +21,18 @@ from.addEventListener('submit', addItem)
 // clear items btn  (class... = event, function name)
 clearBtn.addEventListener('click', clearItems)
 
+
+
 // ****** FUNCTIONS **********
 
 // add event object (e) because normally it should be submited to a database 
 function addItem(e){
     e.preventDefault();
     // now traget  input of grocery and give it a value
-    const value = grocery.value 
+    const value = grocery.value; 
     // this is a way to give each item a new id - not normal way for serious projects 
     // new date(), getTime() are in day / MS - the toString to get correct format for ID placement
-    const id = new Date().getTime().toString
+    const id = new Date().getTime().toString;
     // if value is not empty and edit flag is false (this means no value and im not editing)
      if(value !== '' && editFlag === false){
         //  create a new element for the list
@@ -52,7 +54,16 @@ function addItem(e){
                     </button>
                 </div>`;
 
-        // append the list
+        
+        // delete function with BTN- target when you have access to it // uses the class from btn above 
+        const deleteBtn = element.querySelector('.delete-btn');
+        deleteBtn.addEventListener('click', deleteItem);
+        // edit function with BTN - target when you have access to it
+        const editBtn = element.querySelector('.edit-btn');
+        editBtn.addEventListener('click', editItem);
+
+
+        // append the child list
             list.appendChild(element);
         // display alert
             displayAlert("item added to the list", "success");
@@ -108,7 +119,31 @@ function clearItems(){
     // localStorage.removeItem('list);
 }
 
+// delete function from  above using const = deleteBtn
+function deleteItem(e){
+    // access the parent container 'grocery-item' with event object
+    // use current target so you directly select the btn
+    const element = e.currentTarget.parentElement.parentElement;
+    // this is the id setup earlier 
+    const id = element.dataset.id;
+    list.removeChild(element);
+    // hide container if needed
+    if (list.children.length === 0) {
+        container.classList.remove('show-container');
+      }
+    // shows alert
+    displayAlert('item removed', 'danger');
+    // return everything back to default with the function created below 
+    setBackToDefault();
+    // remove from local storage - use your ids /
+    // removeFromLocalStorage(id);
 
+}
+
+// edit function above using from const = editBtn 
+function editItem(){
+    console.log('item edited');
+}
 
 // set back to default
 function setBackToDefault(){
@@ -123,6 +158,10 @@ function setBackToDefault(){
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value){
     console.log("added to local storage");
+}
+
+function removeFromLocalStorage(id){
+
 }
 // ****** SETUP ITEMS **********
 
